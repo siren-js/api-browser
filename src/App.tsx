@@ -26,8 +26,9 @@ export default class App extends React.Component<{}, AppState> {
     this.setState({ entity: await response.siren() });
   }
 
-  submit(action: Siren.Action) {
-    console.log('submitting action', action);
+  async submit(action: Siren.Action) {
+    const response = await this.client.submit(action);
+    this.setState({ entity: await response.siren() });
   }
 
   render() {
