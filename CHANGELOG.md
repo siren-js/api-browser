@@ -22,10 +22,10 @@ The format is based on [Keep a Changelog][kac], and this project adheres to
 
 ### Changed
 
-- Center location input control
+- Center location form
 - Update location input control value to show current location
 
-## 1.0.0
+## 1.0.0 - 2021-05-31
 
 ### Added
 
