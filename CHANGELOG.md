@@ -19,6 +19,7 @@ The format is based on [Keep a Changelog][kac], and this project adheres to
   - Siren client headers
   - Title casing property names
 - Display original JSON source (in addition to current state)
+- Support for multi-`select`
 
 ### Changed
 
