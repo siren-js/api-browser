@@ -34,6 +34,12 @@ The format is based on [Keep a Changelog][kac], and this project adheres to
   HTTP headers, supports more field type submission, and fixes submitting no
   value
 
+### Fixed
+
+- Navbar is now visible on touch devices ([#4]).
+
+[#4]: https://github.com/siren-js/api-browser/issues/4
+
 ## 1.0.0 - 2021-05-31
 
 ### Added
