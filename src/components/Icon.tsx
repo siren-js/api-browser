@@ -18,17 +18,26 @@ export enum IconType {
 export interface IconProps {
   name: string;
   style: IconStyle;
+  color?: IconColor;
   size?: IconSize;
   type?: IconType;
+}
+
+export enum IconColor {
+  Info = 'info',
+  Success = 'success',
+  Warning = 'warning',
+  Danger = 'danger'
 }
 
 export const Icon = ({
   name,
   style,
+  color,
   size = IconSize.Normal,
   type = IconType.Icon
 }: IconProps) => (
-  <span className={type}>
+  <span className={type + (color ? ` has-text-${color}` : '')}>
     <i className={`${style} fa-${name} ${size}`}></i>
   </span>
 );
