@@ -1,6 +1,5 @@
 import {
   EntityProp,
-  InteractionProps,
   OnFollowProp,
   OnSubmitProp,
   RenderProps
@@ -51,11 +50,7 @@ const EntityLinks = ({ entity, onFollow }: EntityProp & OnFollowProp) =>
     <LinksPanel links={entity.links} onClick={onFollow} />
   ) : null;
 
-const EntitySubEntities = ({
-  entity,
-  onFollow,
-  onSubmit
-}: EntityProp & InteractionProps) =>
+const EntitySubEntities = ({ entity, onFollow, onSubmit }: RenderProps) =>
   isNonEmpty(entity.entities) ? (
     <SubEntitiesPanel
       subEntities={entity.entities}
