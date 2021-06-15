@@ -15,9 +15,6 @@ The format is based on [Keep a Changelog][kac], and this project adheres to
 - Error response reporting
 - Non-Siren response handling
 - Tags for actions' `method` and `type`
-- Configuration options
-  - Siren client headers
-  - Title casing property names
 - Display original JSON source (in addition to current state)
 - Support for multi-`select`
 
@@ -27,6 +24,12 @@ The format is based on [Keep a Changelog][kac], and this project adheres to
 - Update location input control value to show current location
 
 ## 1.1.0
+
+### Added
+
+- Settings
+  - Customize HTTP headers to be sent in each request
+  - Toggle title casing property names
 
 ### Changed
 

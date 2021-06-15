@@ -1,19 +1,10 @@
-import Navbar from './Navbar';
-
 export default function Hero() {
   return (
     <section className="hero is-info">
-      <HeroHead />
       <HeroBody />
     </section>
   );
 }
-
-const HeroHead = () => (
-  <div className="hero-head">
-    <Navbar />
-  </div>
-);
 
 const HeroBody = () => (
   <div className="hero-body">

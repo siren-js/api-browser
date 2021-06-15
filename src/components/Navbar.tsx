@@ -1,5 +1,8 @@
 import React from 'react';
 import { version } from '../../package.json';
+import { Icon, IconSize, IconStyle } from './Icon';
+import { SettingsModal } from './settings';
+import './Navbar.css';
 
 export default class Navbar extends React.Component<{}, NavbarState> {
   state: NavbarState = {
@@ -17,7 +20,7 @@ export default class Navbar extends React.Component<{}, NavbarState> {
 
   render() {
     return (
-      <nav className="navbar">
+      <nav className="navbar is-info" role="navigation" aria-label="navigation">
         <div className="container">
           <NavbarBrand
             targetElementId="navbar-menu"
@@ -69,22 +72,8 @@ const NavbarMenu = (props: NavbarMenuProps) => (
   >
     <div className="navbar-end">
       <div className="navbar-item has-text-weight-bold">v{version}</div>
-      <a
-        className="navbar-item"
-        href="https://github.com/siren-js/api-browser"
-        target="_blank"
-        rel="noreferrer"
-      >
-        <span className="icon">
-          <i className="fab fa-github fa-lg"></i>
-        </span>
-      </a>
-      {/* TODO: make things like property name casing and client headers configurable */}
-      {/* <a className="navbar-item" href="/#">
-        <span className="icon">
-          <i className="fas fa-cog fa-lg"></i>
-        </span>
-      </a> */}
+      <GitHubLinkItem />
+      <SettingsItem />
     </div>
   </div>
 );
@@ -93,3 +82,59 @@ interface NavbarMenuProps {
   id: string;
   active: boolean;
 }
+
+class SettingsItem extends React.Component<{}, SettingsItemState> {
+  state: SettingsItemState = {
+    isModalActive: false
+  };
+
+  constructor(props: {}) {
+    super(props);
+    this.activateModal = this.activateModal.bind(this);
+    this.deactivateModal = this.deactivateModal.bind(this);
+  }
+
+  activateModal() {
+    this.setState({ isModalActive: true });
+  }
+
+  deactivateModal() {
+    this.setState({ isModalActive: false });
+  }
+
+  render() {
+    return (
+      <>
+        <a
+          href="/#"
+          className="navbar-item"
+          onClick={(event) => {
+            event.preventDefault();
+            this.activateModal();
+          }}
+        >
+          <Icon name="cog" style={IconStyle.Solid} size={IconSize.Large} />
+        </a>
+        <SettingsModal
+          active={this.state.isModalActive}
+          onClose={this.deactivateModal}
+        />
+      </>
+    );
+  }
+}
+
+interface SettingsItemState {
+  isModalActive: boolean;
+}
+
+const GitHubLinkItem = () => (
+  <a
+    className="navbar-item"
+    href="https://github.com/siren-js/api-browser"
+    target="_blank"
+    rel="noreferrer"
+  >
+    <Icon name="github" style={IconStyle.Brands} size={IconSize.Large} />
+  </a>
+);
