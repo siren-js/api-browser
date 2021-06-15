@@ -1,5 +1,5 @@
 import React from 'react';
-import { ModalCard, ModalCardBody, ModalCardFoot } from '../ModalCard';
+import { ModalCard, ModalCardBody, ModalCardFoot } from '../util';
 
 export interface HeaderFormModalProps {
   active: boolean;

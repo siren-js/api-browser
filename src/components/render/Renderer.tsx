@@ -1,6 +1,6 @@
 import React from 'react';
 import { EntityProp, RenderProps } from '../../types';
-import { Tabs, View } from '../Tabs';
+import { Tabs, View } from './Tabs';
 import Rendering from './Rendering';
 
 export default class Renderer extends React.Component<

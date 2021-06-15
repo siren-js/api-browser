@@ -1,7 +1,7 @@
 import React from 'react';
 import SettingsContext from '../../SettingsContext';
 import HeaderFormModal from './HeaderFormModal';
-import { Icon, IconStyle } from '../Icon';
+import { Icon, IconStyle } from '../util';
 
 export interface HeadersTableState {
   isAddHeaderModalActive: boolean;

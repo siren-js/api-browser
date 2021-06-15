@@ -4,7 +4,7 @@ import {
   OnSubmitProp,
   RenderProps
 } from '../../types';
-import Tags from '../Tags';
+import { Tags } from '../util';
 import ActionsPanel from './action';
 import LinksPanel from './link';
 import Properties from './Properties';

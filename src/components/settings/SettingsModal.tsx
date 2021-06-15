@@ -3,7 +3,7 @@ import {
   ModalCardBody,
   ModalCardFoot,
   ModalProps
-} from '../ModalCard';
+} from '../util';
 import HeadersSetting from './HeadersSetting';
 import TitleCasePropertyNamesSetting from './TitleCasePropertyNamesSetting';
 
