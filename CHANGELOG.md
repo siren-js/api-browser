@@ -20,7 +20,6 @@ The format is based on [Keep a Changelog][kac], and this project adheres to
 
 ### Changed
 
-- Center location form
 - Update location input control value to show current location
 
 ## 1.1.0
@@ -36,6 +35,7 @@ The format is based on [Keep a Changelog][kac], and this project adheres to
 - Upgraded `@siren-js/client` from v0.1.0 to v0.3.1, which allows for custom
   HTTP headers, supports more field type submission, and fixes submitting no
   value
+- Location form is now centered
 
 ### Fixed
 
