@@ -12,11 +12,14 @@ export default class App extends React.Component<{}, AppState> {
     this.fetch = this.fetch.bind(this);
     this.follow = this.follow.bind(this);
     this.submit = this.submit.bind(this);
-    this.toggleTitleCasing = this.toggleTitleCasing.bind(this);
 
     this.state = {
       titleCasePropertyNames: false,
-      toggleTitleCasePropertyNames: this.toggleTitleCasing,
+      toggleTitleCasePropertyNames: () => {
+        this.setState({
+          titleCasePropertyNames: !this.state.titleCasePropertyNames
+        });
+      },
       headers: this.client.headers,
       addHeader: (name, value) => {
         this.client.headers.append(name, value);
@@ -46,18 +49,10 @@ export default class App extends React.Component<{}, AppState> {
     this.setState({ entity: await response.siren() });
   }
 
-  toggleTitleCasing() {
-    this.setState({
-      titleCasePropertyNames: !this.state.titleCasePropertyNames
-    });
-  }
-
   render() {
     return (
-      <div className="App">
-        <SettingsContext.Provider value={this.state}>
-          <Navbar />
-        </SettingsContext.Provider>
+      <SettingsContext.Provider value={this.state}>
+        <Navbar />
         <Hero />
         <div className="container">
           <section className="section">
@@ -71,7 +66,7 @@ export default class App extends React.Component<{}, AppState> {
             ) : null}
           </section>
         </div>
-      </div>
+      </SettingsContext.Provider>
     );
   }
 }
