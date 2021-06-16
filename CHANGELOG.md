@@ -41,9 +41,11 @@ The format is based on [Keep a Changelog][kac], and this project adheres to
 
 - [#3]: Actions are now properly submitted with the Enter key.
 - [#4]: Navbar is now visible on touch devices.
+- [#5]: Generating content for empty property values.
 
 [#3]: https://github.com/siren-js/api-browser/issues/3
 [#4]: https://github.com/siren-js/api-browser/issues/4
+[#5]: https://github.com/siren-js/api-browser/issues/5
 
 ## 1.0.0 - 2021-05-31
 

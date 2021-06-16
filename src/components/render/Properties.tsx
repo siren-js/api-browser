@@ -15,7 +15,9 @@ export default function Properties(props: PropertiesProps) {
           </div>
           <div className="column">
             {Object.values(props.value).map((value, index) => (
-              <div key={index}>{String(value)}</div>
+              <div key={index}>
+                {value === '' ? <>&nbsp;</> : String(value)}
+              </div>
             ))}
           </div>
         </div>
