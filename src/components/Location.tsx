@@ -32,37 +32,27 @@ export default class Location extends React.Component<
   render() {
     return (
       <form onSubmit={this.submit}>
-        <div className="field is-horizontal">
-          <div className="field-label is-normal">
+        <div className="columns is-mobile is-vcentered">
+          <div className="column is-2 has-text-right">
             <label className="label" htmlFor="location">
               Location:
             </label>
           </div>
-          <div className="field-body">
-            <FieldControl>
-              <input
-                id="location"
-                className="input is-loading"
-                type="url"
-                placeholder="URL"
-                value={this.state.url}
-                onChange={this.updateUrl}
-              />
-            </FieldControl>
-            <FieldControl>
-              <button className="button is-info">Fetch</button>
-            </FieldControl>
+          <div className="column">
+            <input
+              id="location"
+              className="input is-loading"
+              type="url"
+              placeholder="URL"
+              value={this.state.url}
+              onChange={this.updateUrl}
+            />
+          </div>
+          <div className="column is-2">
+            <button className="button is-info">Fetch</button>
           </div>
         </div>
       </form>
     );
   }
-}
-
-function FieldControl(props: { children: React.ReactNode }) {
-  return (
-    <div className="field">
-      <div className="control">{props.children}</div>
-    </div>
-  );
 }

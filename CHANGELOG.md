@@ -15,16 +15,37 @@ The format is based on [Keep a Changelog][kac], and this project adheres to
 - Error response reporting
 - Non-Siren response handling
 - Tags for actions' `method` and `type`
-- Configuration options
-  - Siren client headers
-  - Title casing property names
 - Display original JSON source (in addition to current state)
 - Support for multi-`select`
 
 ### Changed
 
-- Center location form
 - Update location input control value to show current location
+
+## 1.1.0
+
+### Added
+
+- Settings
+  - Customize HTTP headers to be sent in each request
+  - Toggle title casing property names
+
+### Changed
+
+- Upgraded `@siren-js/client` from v0.1.0 to v0.3.1, which allows for custom
+  HTTP headers, supports more field type submission, and fixes submitting no
+  value
+- Location form is now centered
+
+### Fixed
+
+- [#3]: Actions are now properly submitted with the Enter key.
+- [#4]: Navbar is now visible on touch devices.
+- [#5]: Generating content for empty property values.
+
+[#3]: https://github.com/siren-js/api-browser/issues/3
+[#4]: https://github.com/siren-js/api-browser/issues/4
+[#5]: https://github.com/siren-js/api-browser/issues/5
 
 ## 1.0.0 - 2021-05-31
 
