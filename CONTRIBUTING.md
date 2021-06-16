@@ -65,7 +65,7 @@ In the project directory, you can run the following commands
 
   The build is minified and the filenames include the hashes. Your app is ready
   to be deployed!
-  
+
   See the section about [deployment] for more information.
 
 [testing]: https://facebook.github.io/create-react-app/docs/running-tests

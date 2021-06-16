@@ -21,4 +21,4 @@ export default function InputControl({ field }: FieldProp) {
     default:
       return <DefaultInputControl field={field} />;
   }
-};
+}

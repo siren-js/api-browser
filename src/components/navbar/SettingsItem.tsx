@@ -6,7 +6,10 @@ export interface SettingsItemState {
   isModalActive: boolean;
 }
 
-export default class SettingsItem extends React.Component<{}, SettingsItemState> {
+export default class SettingsItem extends React.Component<
+  {},
+  SettingsItemState
+> {
   state: SettingsItemState = {
     isModalActive: false
   };

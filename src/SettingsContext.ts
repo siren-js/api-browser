@@ -15,7 +15,7 @@ const SettingsContext = React.createContext<Settings>({
   addHeader: () => {},
   deleteHeader: () => {},
   editHeader: () => {},
-  toggleTitleCasePropertyNames: () => {},
+  toggleTitleCasePropertyNames: () => {}
 });
 
 export default SettingsContext;

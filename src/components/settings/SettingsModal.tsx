@@ -1,9 +1,4 @@
-import {
-  ModalCard,
-  ModalCardBody,
-  ModalCardFoot,
-  ModalProps
-} from '../util';
+import { ModalCard, ModalCardBody, ModalCardFoot, ModalProps } from '../util';
 import HeadersSetting from './HeadersSetting';
 import TitleCasePropertyNamesSetting from './TitleCasePropertyNamesSetting';
 

@@ -12,4 +12,4 @@ export default function DefaultInputControl({ field }: FieldProp) {
       />
     </BasicFormField>
   );
-};
+}
