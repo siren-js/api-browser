@@ -6,7 +6,7 @@ export default function TitleCasePropertyNamesSetting() {
       {({ titleCasePropertyNames, toggleTitleCasePropertyNames }) => (
         <div className="field">
           <div className="control">
-            <label className="checkbox">
+            <label className="checkbox has-text-dark">
               <input
                 type="checkbox"
                 checked={titleCasePropertyNames}
