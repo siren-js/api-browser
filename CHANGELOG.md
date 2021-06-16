@@ -20,9 +20,10 @@ The format is based on [Keep a Changelog][kac], and this project adheres to
 
 ### Changed
 
-- Update location input control value to show current location
+- Fetch button disabled while fetching
+- Location field aligns with current representation
 
-## 1.1.0
+## 1.1.0 - 2021-06-16
 
 ### Added
 
