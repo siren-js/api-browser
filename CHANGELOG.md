@@ -39,8 +39,10 @@ The format is based on [Keep a Changelog][kac], and this project adheres to
 
 ### Fixed
 
-- Navbar is now visible on touch devices ([#4]).
+- [#3]: Actions are now properly submitted with the Enter key.
+- [#4]: Navbar is now visible on touch devices.
 
+[#3]: https://github.com/siren-js/api-browser/issues/3
 [#4]: https://github.com/siren-js/api-browser/issues/4
 
 ## 1.0.0 - 2021-05-31

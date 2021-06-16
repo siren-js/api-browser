@@ -1,9 +1,26 @@
 import React from 'react';
 
-export const ModalCard = (props: ModalCardProps) => (
+const ModalContainer = (props: ModalProps) => (
   <div className={`modal${props.active ? ' is-active' : ''}`}>
     <div className="modal-background" onClick={props.onClose}></div>
-    <div className="modal-card has-text-dark">
+    {props.children}
+  </div>
+);
+
+export const Modal = (props: ModalProps) => (
+  <ModalContainer {...props}>
+    <div className="modal-content">{props.children}</div>
+    <button
+      className="modal-close is-large"
+      aria-label="close"
+      onClick={props.onClose}
+    ></button>
+  </ModalContainer>
+);
+
+export const ModalCard = (props: ModalCardProps) => (
+  <ModalContainer {...props}>
+    <div className="modal-card">
       <header className="modal-card-head">
         <p className="modal-card-title">{props.title}</p>
         <button
@@ -14,7 +31,7 @@ export const ModalCard = (props: ModalCardProps) => (
       </header>
       {props.children}
     </div>
-  </div>
+  </ModalContainer>
 );
 
 export interface ModalProps {

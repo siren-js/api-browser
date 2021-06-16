@@ -1,3 +1,3 @@
 export * from './Icon';
-export * from './ModalCard';
+export * from './Modal';
 export { default as Tags } from './Tags';
