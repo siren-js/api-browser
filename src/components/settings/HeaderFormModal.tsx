@@ -45,12 +45,9 @@ export default class HeaderFormModal extends React.Component<
         <ModalCardBody>
           <form onSubmit={this.submit}>
             <div className="field">
-              <label htmlFor="name" className="label">
-                Name
-              </label>
+              <label className="label">Name</label>
               <div className="control">
                 <input
-                  id="name"
                   className="input"
                   placeholder="Header name (Api-Key, Authorization, etc.)"
                   disabled={this.props.disableName}
@@ -60,12 +57,9 @@ export default class HeaderFormModal extends React.Component<
               </div>
             </div>
             <div className="field">
-              <label htmlFor="value" className="label">
-                Value
-              </label>
+              <label className="label">Value</label>
               <div className="control">
                 <input
-                  id="value"
                   className="input"
                   placeholder="Header value(s)"
                   value={this.state.value}
