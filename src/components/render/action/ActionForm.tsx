@@ -1,12 +1,6 @@
 import { Field } from '@siren-js/core';
-import React from 'react';
+import { withPreventDefault } from '../../../with';
 import InputControl from '../field';
-
-const withPreventDefault =
-  (fn: () => void) => (event: React.BaseSyntheticEvent) => {
-    event.preventDefault();
-    fn();
-  };
 
 export default function ActionForm({
   fields,

@@ -1,4 +1,5 @@
 import React from 'react';
+import { withPreventDefault } from '../with';
 
 export interface LocationProps {
   onNavigate: (url: string) => void;
@@ -20,8 +21,7 @@ export default class Location extends React.Component<
     this.updateUrl = this.updateUrl.bind(this);
   }
 
-  submit(event: React.FormEvent<HTMLFormElement>) {
-    event.preventDefault();
+  submit() {
     this.props.onNavigate(this.state.url);
   }
 
@@ -31,7 +31,7 @@ export default class Location extends React.Component<
 
   render() {
     return (
-      <form onSubmit={this.submit}>
+      <form onSubmit={withPreventDefault(this.submit)}>
         <div className="columns is-mobile is-vcentered">
           <div className="column is-2 has-text-right">
             <label className="label" htmlFor="location">

@@ -58,10 +58,7 @@ const ActionPanelBlock = ({ action, onClick }: ActionPanelBlockProps) => (
   <a
     href="/#"
     className="panel-block"
-    onClick={(e) => {
-      e.preventDefault();
-      onClick(action.name);
-    }}
+    onClick={withPreventDefault(() => onClick(action.name))}
   >
     <span className="panel-icon">
       <i className="fas fa-file-alt" aria-hidden="true"></i>
