@@ -23,7 +23,7 @@ The format is based on [Keep a Changelog][kac], and this project adheres to
 - Fetch button disabled while fetching
 - Location field aligns with current representation
 
-## 1.1.1
+## 1.1.1 - 2021-06-17
 
 ### Fixed
 
