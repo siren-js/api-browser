@@ -1,5 +1,6 @@
-import React from 'react';
 import { Action } from '@siren-js/core';
+import React from 'react';
+import { Panel } from '../../util';
 import ActionFormModal from './ActionFormModal';
 
 export default class ActionsPanel extends React.Component<
@@ -26,8 +27,7 @@ export default class ActionsPanel extends React.Component<
 
   render() {
     return (
-      <article className="panel is-info">
-        <p className="panel-heading">Actions</p>
+      <Panel title="Actions">
         {this.props.actions.map((action, index) => (
           <React.Fragment key={index}>
             <ActionPanelBlock action={action} onClick={this.activate} />
@@ -39,7 +39,7 @@ export default class ActionsPanel extends React.Component<
             />
           </React.Fragment>
         ))}
-      </article>
+      </Panel>
     );
   }
 }

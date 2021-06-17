@@ -1,14 +1,14 @@
 import { Link } from '@siren-js/core';
+import { Panel } from '../../util';
 import LinkPanelBlock from './LinkPanelBlock';
 
 export default function LinksPanel({ links, onClick }: LinksProps) {
   return (
-    <article className="panel is-info">
-      <p className="panel-heading">Links</p>
+    <Panel title="Links">
       {links.map((link, index) => (
         <LinkPanelBlock key={index} link={link} onClick={onClick} />
       ))}
-    </article>
+    </Panel>
   );
 }
 

@@ -1,5 +1,6 @@
 import { Action, EmbeddedLink, SubEntity } from '@siren-js/core';
 import React from 'react';
+import { Panel } from '../../util';
 import LinkPanelBlock from '../link/LinkPanelBlock';
 import EmbeddedEntityModal from './EmbeddedEntityModal';
 import EmbeddedEntityPanelBlock from './EmbeddedEntityPanelBlock';
@@ -28,8 +29,7 @@ export default class SubEntitiesPanel extends React.Component<
 
   render() {
     return (
-      <article className="panel is-info">
-        <p className="panel-heading">Sub-Entites</p>
+      <Panel title="Sub-Entities">
         {this.props.subEntities.map((subEntity, index) =>
           subEntity instanceof EmbeddedLink ? (
             <LinkPanelBlock
@@ -53,7 +53,7 @@ export default class SubEntitiesPanel extends React.Component<
             </React.Fragment>
           )
         )}
-      </article>
+      </Panel>
     );
   }
 }
