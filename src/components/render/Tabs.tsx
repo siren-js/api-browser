@@ -1,3 +1,5 @@
+import { withPreventDefault } from '../../with';
+
 export enum View {
   Rendering,
   Source
@@ -33,13 +35,7 @@ interface TabProps {
 
 const Tab = (props: TabProps) => (
   <li className={props.isActive ? 'is-active' : ''}>
-    <a
-      href="/#"
-      onClick={(e) => {
-        e.preventDefault();
-        props.onClick(props.view);
-      }}
-    >
+    <a href="/#" onClick={withPreventDefault(() => props.onClick(props.view))}>
       {View[props.view]}
     </a>
   </li>

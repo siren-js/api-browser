@@ -1,3 +1,5 @@
+import { withPreventDefault } from '../../with';
+
 export interface NavbarBrandProps {
   targetElementId: string;
   active: boolean;
@@ -10,10 +12,7 @@ export default function NavbarBrand(props: NavbarBrandProps) {
       <a
         className={`navbar-burger${props.active ? ' is-active' : ''}`}
         href="/#"
-        onClick={(event) => {
-          event.preventDefault();
-          props.onBurgerClick();
-        }}
+        onClick={withPreventDefault(props.onBurgerClick)}
         role="button"
         aria-label="menu"
         aria-expanded={props.active}

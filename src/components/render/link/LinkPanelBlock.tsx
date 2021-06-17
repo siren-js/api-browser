@@ -1,4 +1,5 @@
 import { Link } from '@siren-js/core';
+import { withPreventDefault } from '../../../with';
 
 export default function LinkPanelBlock({ link, onClick }: LinkProps) {
   const isActive = link.rel.includes('self');
@@ -6,10 +7,7 @@ export default function LinkPanelBlock({ link, onClick }: LinkProps) {
     <a
       href="/#"
       className={`panel-block${isActive ? ' is-active' : ''}`}
-      onClick={(e) => {
-        e.preventDefault();
-        onClick(link);
-      }}
+      onClick={withPreventDefault(() => onClick(link))}
     >
       <span className="panel-icon">
         <i className="fas fa-link" aria-hidden="true"></i>

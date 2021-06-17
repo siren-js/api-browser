@@ -1,5 +1,7 @@
-import React from 'react';
 import { Action } from '@siren-js/core';
+import React from 'react';
+import withFn, { withPreventDefault } from '../../../with';
+import { Panel } from '../../util';
 import ActionFormModal from './ActionFormModal';
 
 export default class ActionsPanel extends React.Component<
@@ -26,8 +28,7 @@ export default class ActionsPanel extends React.Component<
 
   render() {
     return (
-      <article className="panel is-info">
-        <p className="panel-heading">Actions</p>
+      <Panel title="Actions">
         {this.props.actions.map((action, index) => (
           <React.Fragment key={index}>
             <ActionPanelBlock action={action} onClick={this.activate} />
@@ -35,11 +36,11 @@ export default class ActionsPanel extends React.Component<
               active={this.state.activeModal === action.name}
               action={action}
               onClose={this.deactivate}
-              onSubmit={this.props.onSubmit}
+              onSubmit={withFn(this.props.onSubmit, this.deactivate)}
             />
           </React.Fragment>
         ))}
-      </article>
+      </Panel>
     );
   }
 }
@@ -57,10 +58,7 @@ const ActionPanelBlock = ({ action, onClick }: ActionPanelBlockProps) => (
   <a
     href="/#"
     className="panel-block"
-    onClick={(e) => {
-      e.preventDefault();
-      onClick(action.name);
-    }}
+    onClick={withPreventDefault(() => onClick(action.name))}
   >
     <span className="panel-icon">
       <i className="fas fa-file-alt" aria-hidden="true"></i>
