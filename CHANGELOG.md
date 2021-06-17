@@ -23,6 +23,15 @@ The format is based on [Keep a Changelog][kac], and this project adheres to
 - Fetch button disabled while fetching
 - Location field aligns with current representation
 
+## 1.1.1
+
+### Fixed
+
+- [#2]: Modals now close properly after navigation
+- Typo in sub-entities panel
+
+[#2]: https://github.com/siren-js/api-browser/issues/2
+
 ## 1.1.0 - 2021-06-16
 
 ### Added

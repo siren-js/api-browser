@@ -1,5 +1,6 @@
 import { Action } from '@siren-js/core';
 import React from 'react';
+import withFn, { withPreventDefault } from '../../../with';
 import { Panel } from '../../util';
 import ActionFormModal from './ActionFormModal';
 
@@ -35,7 +36,7 @@ export default class ActionsPanel extends React.Component<
               active={this.state.activeModal === action.name}
               action={action}
               onClose={this.deactivate}
-              onSubmit={this.props.onSubmit}
+              onSubmit={withFn(this.props.onSubmit, this.deactivate)}
             />
           </React.Fragment>
         ))}

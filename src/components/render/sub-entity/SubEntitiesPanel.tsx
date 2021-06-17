@@ -1,5 +1,6 @@
 import { Action, EmbeddedLink, SubEntity } from '@siren-js/core';
 import React from 'react';
+import withFn from '../../../with';
 import { Panel } from '../../util';
 import { LinkPanelBlock } from '../link';
 import EmbeddedEntityModal from './EmbeddedEntityModal';
@@ -47,8 +48,8 @@ export default class SubEntitiesPanel extends React.Component<
                 embeddedEntity={subEntity}
                 active={index === this.state.activeModal}
                 onClose={this.deactivate}
-                onFollow={this.props.onFollow}
-                onSubmit={this.props.onSubmit}
+                onFollow={withFn(this.props.onFollow, this.deactivate)}
+                onSubmit={withFn(this.props.onSubmit, this.deactivate)}
               />
             </React.Fragment>
           )
