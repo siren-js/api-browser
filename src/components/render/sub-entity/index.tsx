@@ -1,1 +1,1 @@
-export { default } from './SubEntitiesPanel';
+export { default as SubEntitiesPanel } from './SubEntitiesPanel';

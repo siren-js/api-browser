@@ -5,10 +5,10 @@ import {
   RenderProps
 } from '../../types';
 import { Tags } from '../util';
-import ActionsPanel from './action';
-import LinksPanel from './link';
+import { ActionsPanel } from './action';
+import { LinksPanel } from './link';
 import Properties from './Properties';
-import SubEntitiesPanel from './sub-entity';
+import { SubEntitiesPanel } from './sub-entity';
 
 export default function Rendering(props: RenderingProps) {
   const { cols } = props;

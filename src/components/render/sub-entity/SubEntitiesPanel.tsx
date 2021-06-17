@@ -1,7 +1,7 @@
 import { Action, EmbeddedLink, SubEntity } from '@siren-js/core';
 import React from 'react';
 import { Panel } from '../../util';
-import LinkPanelBlock from '../link/LinkPanelBlock';
+import { LinkPanelBlock } from '../link';
 import EmbeddedEntityModal from './EmbeddedEntityModal';
 import EmbeddedEntityPanelBlock from './EmbeddedEntityPanelBlock';
 
