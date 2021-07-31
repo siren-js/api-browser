@@ -10,7 +10,7 @@ export default function ActionForm({
   return (
     <form onSubmit={withPreventDefault(onSubmit)}>
       {fields.length === 0 ? (
-        <p>This action has no fields.</p>
+        <p className="subtitle">This action has no fields.</p>
       ) : (
         fields.map((field) => <InputControl key={field.name} field={field} />)
       )}
