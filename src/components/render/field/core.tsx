@@ -3,7 +3,9 @@ import { useState } from 'react';
 
 export const BasicFormField = ({ children, field }: BasicFieldProps) => (
   <FormField>
-    <Label field={field} />
+    {field.type === 'hidden' ? null : (
+      <label className="label">{labelText(field)}</label>
+    )}
     <FormControl>{children}</FormControl>
   </FormField>
 );
@@ -25,11 +27,6 @@ export const FormControl = (props: ParentProps) => (
 export const FormField = (props: ParentProps) => (
   <div className="field">{props.children}</div>
 );
-
-export const Label = ({ field }: FieldProp) =>
-  field.type === 'hidden' ? null : (
-    <label className="label">{labelText(field)}</label>
-  );
 
 export const labelText = (field: Field) => field.title ?? field.name;
 

@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { FieldProp, FormControl, FormField, Label } from './core';
+import { FieldProp, FormControl, FormField } from './core';
 
 export default function RadioButtonControl({ field }: FieldProp) {
   const buttons = field.group as any[]; // TODO: guard type
@@ -7,7 +7,6 @@ export default function RadioButtonControl({ field }: FieldProp) {
   const [checkedIndex, setCheckedIndex] = useState(init);
   return (
     <FormField>
-      <Label field={field} />
       <FormControl>
         {buttons.map((button, index) => (
           <label className="radio" key={index}>
