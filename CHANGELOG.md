@@ -47,7 +47,9 @@ The format is based on [Keep a Changelog][kac], and this project adheres to
 
 ### Fixed
 
-- `radio` fields' `title` is now displayed
+- [#8]: `radio` fields' `title` is now displayed as a form control label
+
+[#8]: https://github.com/siren-js/api-browser/issues/8
 
 ## 1.1.1 - 2021-06-17
 
