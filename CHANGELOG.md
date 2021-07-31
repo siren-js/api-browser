@@ -40,6 +40,11 @@ The format is based on [Keep a Changelog][kac], and this project adheres to
   - `datetime-local`
   - `number`
 
+### Changed
+
+- The text shown when an action has no fields is now larger and has more
+  spacing.
+
 ### Fixed
 
 - `radio` fields' `title` is now displayed
