@@ -25,6 +25,21 @@ The format is based on [Keep a Changelog][kac], and this project adheres to
 
 ## 1.2.0
 
+### Added
+
+- Form controls now contain an icon based on known field `type`s:
+  - `search`
+  - `tel`
+  - `url`
+  - `email`
+  - `password`
+  - `date`
+  - `month`
+  - `week`
+  - `time`
+  - `datetime-local`
+  - `number`
+
 ### Fixed
 
 - `radio` fields' `title` is now displayed

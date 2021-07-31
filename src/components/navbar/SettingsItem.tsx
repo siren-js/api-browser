@@ -1,5 +1,5 @@
 import React from 'react';
-import { Icon, IconSize, IconStyle } from '../util';
+import { Icon, IconSize } from '../util';
 import { SettingsModal } from '../settings';
 import { withPreventDefault } from '../../with';
 
@@ -37,7 +37,7 @@ export default class SettingsItem extends React.Component<
           className="navbar-item"
           onClick={withPreventDefault(this.activateModal)}
         >
-          <Icon name="cog" style={IconStyle.Solid} size={IconSize.Large} />
+          <Icon name="cog" size={IconSize.Large} />
         </a>
         <SettingsModal
           active={this.state.isModalActive}
