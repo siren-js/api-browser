@@ -21,7 +21,6 @@ The format is based on [Keep a Changelog][kac], and this project adheres to
 ### Changed
 
 - Fetch button disabled while fetching
-- Location field aligns with current representation
 
 ## 1.2.0
 
@@ -44,6 +43,10 @@ The format is based on [Keep a Changelog][kac], and this project adheres to
 
 - The text shown when an action has no fields is now larger and has more
   spacing.
+- The Location field now updates based on API navigation.
+- The Fetch button is now disabled after submitting the Location and while the
+  request is being made.
+- The Location form is now stacked on mobile and tablet.
 
 ### Fixed
 
