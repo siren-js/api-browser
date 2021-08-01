@@ -5,7 +5,7 @@ export default function Properties(props: PropertiesProps) {
   return (
     <SettingsContext.Consumer>
       {({ titleCasePropertyNames }) => (
-        <div className="columns">
+        <div className="columns is-mobile">
           <div className="column is-narrow">
             {Object.keys(props.value).map((key) => (
               <div className="has-text-right has-text-weight-bold" key={key}>

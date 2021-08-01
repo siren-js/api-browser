@@ -2,54 +2,61 @@ import React from 'react';
 import { withPreventDefault } from '../with';
 
 export interface LocationProps {
-  onNavigate: (url: string) => void;
+  onNavigate: () => Promise<void>;
+  onUrlChange: (url: string) => void;
+  url: string;
 }
 
-export interface LocationState {
-  url: string;
+interface LocationState {
+  isNavigating: boolean;
 }
 
 export default class Location extends React.Component<
   LocationProps,
   LocationState
 > {
-  state = { url: '' };
+  state: LocationState = {
+    isNavigating: false
+  };
 
   constructor(props: LocationProps) {
     super(props);
     this.submit = this.submit.bind(this);
-    this.updateUrl = this.updateUrl.bind(this);
   }
 
-  submit() {
-    this.props.onNavigate(this.state.url);
-  }
-
-  updateUrl(event: React.ChangeEvent<HTMLInputElement>) {
-    this.setState({ url: event.target.value });
+  async submit() {
+    this.setState({ isNavigating: true });
+    await this.props.onNavigate();
+    this.setState({ isNavigating: false });
   }
 
   render() {
     return (
-      <form onSubmit={withPreventDefault(this.submit)}>
-        <div className="columns is-mobile is-vcentered">
-          <div className="column is-2 has-text-right">
+      <form className="pb-5" onSubmit={withPreventDefault(this.submit)}>
+        <div className="columns is-vcentered">
+          <div className="column has-text-right-tablet">
             <label className="label" htmlFor="location">
-              Location:
+              Location
             </label>
           </div>
-          <div className="column">
+          <div className="column is-two-thirds">
             <input
               id="location"
-              className="input is-loading"
+              className="input"
               type="url"
               placeholder="URL"
-              value={this.state.url}
-              onChange={this.updateUrl}
+              value={this.props.url}
+              onChange={(event) => this.props.onUrlChange(event.target.value)}
             />
           </div>
-          <div className="column is-2">
-            <button className="button is-info">Fetch</button>
+          <div className="column">
+            <button
+              className={`button is-info ${
+                this.state.isNavigating ? 'is-loading' : ''
+              }`}
+            >
+              Fetch
+            </button>
           </div>
         </div>
       </form>

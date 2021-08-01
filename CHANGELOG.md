@@ -21,7 +21,40 @@ The format is based on [Keep a Changelog][kac], and this project adheres to
 ### Changed
 
 - Fetch button disabled while fetching
-- Location field aligns with current representation
+
+## 1.2.0
+
+### Added
+
+- Form controls now contain an icon based on known field `type`s:
+  - `search`
+  - `tel`
+  - `url`
+  - `email`
+  - `password`
+  - `date`
+  - `month`
+  - `week`
+  - `time`
+  - `datetime-local`
+  - `number`
+
+### Changed
+
+- The text shown when an action has no fields is now larger and has more
+  spacing.
+- The Location field now updates based on API navigation.
+- The Fetch button is now disabled after submitting the Location and while the
+  request is being made.
+- The Location form is now stacked on mobile and tablet.
+
+### Fixed
+
+- [#8]: `radio` fields' `title` is now displayed as a form control label.
+- [#9]: Properties now align correctly on mobile and tablet.
+
+[#8]: https://github.com/siren-js/api-browser/issues/8
+[#9]: https://github.com/siren-js/api-browser/issues/9
 
 ## 1.1.1 - 2021-06-17
 

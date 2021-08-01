@@ -14,6 +14,7 @@ export default class App extends React.Component<{}, AppState> {
     this.submit = this.submit.bind(this);
 
     this.state = {
+      locationUrl: '',
       titleCasePropertyNames: false,
       toggleTitleCasePropertyNames: () => {
         this.setState({
@@ -34,19 +35,28 @@ export default class App extends React.Component<{}, AppState> {
     };
   }
 
-  async fetch(url: string) {
-    const response = await this.client.fetch(url);
-    this.setState({ entity: await response.siren() });
+  async fetch(): Promise<void> {
+    const response = await this.client.fetch(this.state.locationUrl);
+    this.setState({
+      locationUrl: response.url,
+      entity: await response.siren()
+    });
   }
 
-  async follow(link: Siren.Link) {
+  async follow(link: Siren.Link): Promise<void> {
     const response = await this.client.follow(link);
-    this.setState({ entity: await response.siren() });
+    this.setState({
+      locationUrl: response.url,
+      entity: await response.siren()
+    });
   }
 
-  async submit(action: Siren.Action) {
+  async submit(action: Siren.Action): Promise<void> {
     const response = await this.client.submit(action);
-    this.setState({ entity: await response.siren() });
+    this.setState({
+      locationUrl: response.url,
+      entity: await response.siren()
+    });
   }
 
   render() {
@@ -56,7 +66,11 @@ export default class App extends React.Component<{}, AppState> {
         <Hero />
         <div className="container">
           <section className="section">
-            <Location onNavigate={this.fetch} />
+            <Location
+              url={this.state.locationUrl}
+              onUrlChange={(url) => this.setState({ locationUrl: url })}
+              onNavigate={this.fetch}
+            />
             {this.state.entity ? (
               <Renderer
                 entity={this.state.entity}
@@ -73,4 +87,5 @@ export default class App extends React.Component<{}, AppState> {
 
 interface AppState extends Settings {
   entity?: Siren.Entity;
+  locationUrl: string;
 }

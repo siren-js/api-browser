@@ -1,7 +1,7 @@
 import React from 'react';
 import SettingsContext from '../../SettingsContext';
 import HeaderFormModal from './HeaderFormModal';
-import { Icon, IconStyle } from '../util';
+import { Icon } from '../util';
 
 export interface HeadersTableState {
   isAddHeaderModalActive: boolean;
@@ -66,7 +66,7 @@ export default class HeadersTable extends React.Component<
                   className="button is-small is-outlined is-info mr-1"
                   onClick={() => this.activateEditHeaderModal(name)}
                 >
-                  <Icon name="edit" style={IconStyle.Solid} />
+                  <Icon name="edit" />
                   <span>Edit</span>
                 </button>
                 <HeaderFormModal
@@ -84,7 +84,7 @@ export default class HeadersTable extends React.Component<
                   className="button is-small is-outlined is-danger"
                   onClick={() => this.context.deleteHeader(name)}
                 >
-                  <Icon name="trash-alt" style={IconStyle.Solid} />
+                  <Icon name="trash-alt" />
                   <span>Delete</span>
                 </button>
               </td>
@@ -98,7 +98,7 @@ export default class HeadersTable extends React.Component<
                 className="button is-small is-outlined is-info"
                 onClick={this.activateAddHeaderModal}
               >
-                <Icon name="plus" style={IconStyle.Solid} />
+                <Icon name="plus" />
                 <span>Add</span>
               </button>
               <HeaderFormModal
