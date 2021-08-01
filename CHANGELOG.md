@@ -17,12 +17,9 @@ The format is based on [Keep a Changelog][kac], and this project adheres to
 - Tags for actions' `method` and `type`
 - Display original JSON source (in addition to current state)
 - Support for multi-`select`
+- Indication of high-latency requests
 
-### Changed
-
-- Fetch button disabled while fetching
-
-## 1.2.0
+## 1.2.0 - 2021-08-01
 
 ### Added
 
