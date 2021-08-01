@@ -50,9 +50,11 @@ The format is based on [Keep a Changelog][kac], and this project adheres to
 
 ### Fixed
 
-- [#8]: `radio` fields' `title` is now displayed as a form control label
+- [#8]: `radio` fields' `title` is now displayed as a form control label.
+- [#9]: Properties now align correctly on mobile and tablet.
 
 [#8]: https://github.com/siren-js/api-browser/issues/8
+[#9]: https://github.com/siren-js/api-browser/issues/9
 
 ## 1.1.1 - 2021-06-17
 
