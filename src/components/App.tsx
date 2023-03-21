@@ -1,27 +1,27 @@
-import { Container, Heading, Hero, Section } from 'react-bulma-components';
+import './App.css';
 
-import LocationInput from './LocationInput';
-import MainPanel from './MainPanel';
-import Navbar from './Navbar';
+import { Footer } from './Footer';
+import { Main } from './Main';
+import { Navigator } from './Navigator';
 
-export default function App() {
+import type { Component } from 'solid-js';
+
+const App: Component = () => {
   return (
-    <>
-      <Navbar />
-      <Hero color="info">
-        <Hero.Body>
-          <Container textAlign="center">
-            <Heading>Siren API Browser</Heading>
-            <Heading subtitle>with Siren.js</Heading>
-          </Container>
-        </Hero.Body>
-      </Hero>
-      <Section>
-        <Container>
-          <LocationInput />
-          <MainPanel />
-        </Container>
-      </Section>
-    </>
+    <div class="App">
+      <section class="section pb-4">
+        <div class="container">
+          <Navigator />
+        </div>
+      </section>
+      <main class="section pt-0">
+        <div class="container">
+          <Main />
+        </div>
+      </main>
+      <Footer />
+    </div>
   );
-}
+};
+
+export default App;

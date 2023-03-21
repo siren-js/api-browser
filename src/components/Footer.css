@@ -1,0 +1,8 @@
+.made-with-links {
+  display: flex;
+  gap: 0.5em;
+}
+
+.img {
+  height: 24px;
+}
