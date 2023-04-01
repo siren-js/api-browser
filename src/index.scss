@@ -1,5 +1,5 @@
 @use 'normalize.css';
 
-// TODO: customize Bulma https://bulma.io/documentation/customize/with-node-sass/#6-add-your-own-bulma-styles
+$primary: hsl(200, 96%, 36%);
 
 @import '../node_modules/bulma/bulma.sass';
