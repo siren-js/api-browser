@@ -20,7 +20,7 @@ export const Navigator: Component = () => {
             required
             type="url"
             value={location()}
-            onKeyUp={(e) => setLocation(e.currentTarget.value)}
+            onInput={(e) => setLocation(e.currentTarget.value)}
           />
         </div>
         <div class="control">
