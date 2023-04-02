@@ -3,7 +3,16 @@ import { Component } from 'solid-js';
 import { useBrowserContext } from '../browser';
 
 export const Navigator: Component = () => {
-  const { loading, location, setLocation, follow } = useBrowserContext();
+  const {
+    loading,
+    location,
+    setLocation,
+    canGoBack,
+    canGoForward,
+    goBack: back,
+    goForward: forward,
+    follow,
+  } = useBrowserContext();
   return (
     <form
       onSubmit={(e) => {
@@ -12,6 +21,39 @@ export const Navigator: Component = () => {
       }}
     >
       <div class="field has-addons">
+        <div class="control">
+          <button
+            type="button"
+            class="button"
+            classList={{ 'is-loading': loading() }}
+            disabled={!canGoBack()}
+            onClick={back}
+          >
+            <span class="icon">
+              <i class="fas fa-arrow-left" />
+            </span>
+          </button>
+        </div>
+        <div class="control">
+          <button
+            type="button"
+            class="button"
+            classList={{ 'is-loading': loading() }}
+            disabled={!canGoForward()}
+            onClick={forward}
+          >
+            <span class="icon">
+              <i class="fas fa-arrow-right" />
+            </span>
+          </button>
+        </div>
+        {/* <div class="control">
+          <button type="button" class="button" classList={{ 'is-loading': loading() }}>
+            <span class="icon">
+              <i class="fas fa-redo" />
+            </span>
+          </button>
+        </div> */}
         <div class="control is-expanded">
           <input
             class="input"
@@ -24,7 +66,7 @@ export const Navigator: Component = () => {
           />
         </div>
         <div class="control">
-          <button class="button is-primary" classList={{ 'is-loading': loading() }}>
+          <button type="submit" class="button is-primary" classList={{ 'is-loading': loading() }}>
             <span class="icon">
               <i class="fas fa-search" />
             </span>
