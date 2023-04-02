@@ -57,8 +57,8 @@ export const Main: Component = () => {
                 {error()!.message}
               </Message>
             </Match>
-            <Match when={entity()}>
-              <CodeBlock>{JSON.stringify(entity(), null, 2)}</CodeBlock>
+            <Match when={entity()} keyed>
+              {(entity) => <CodeBlock>{JSON.stringify(entity, null, 2)}</CodeBlock>}
             </Match>
           </Switch>
         </Match>
