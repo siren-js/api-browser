@@ -18,10 +18,18 @@ const typeToIcon = new Map([
   ['number', 'hashtag'],
 ]);
 
+function defaultFilename(field: Field): string {
+  const { value } = field;
+  if (value instanceof FileList && value.length > 0) {
+    return value.item(0)!.name;
+  }
+  return '';
+}
+
 export const FieldInput: Component<{ field: Field }> = ({ field }) => {
   const type = field.type === 'date-time' ? 'datetime-local' : field.type;
   const icon = typeToIcon.get(field.type) ?? 'question';
-  const [filename, setFilename] = createSignal('');
+  const [filename, setFilename] = createSignal(defaultFilename(field));
   return (
     <Show when={field.type !== 'hidden'}>
       <div class="field">
@@ -79,7 +87,7 @@ export const FieldInput: Component<{ field: Field }> = ({ field }) => {
                   <span class="file-icon">
                     <i class="fas fa-upload"></i>
                   </span>
-                  <span class="file-label">Choose a file…</span>
+                  <span class="file-label">{field.title ?? field.name}</span>
                 </span>
                 <span class="file-name">{filename()}</span>
               </label>
