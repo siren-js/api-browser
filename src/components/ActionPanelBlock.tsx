@@ -11,7 +11,6 @@ export const ActionPanelBlock: Component<{ action: Action }> = ({ action }) => {
       <a
         onClick={(e) => {
           e.preventDefault();
-          console.log('clicked');
           setActive(true);
         }}
         class="panel-block"
