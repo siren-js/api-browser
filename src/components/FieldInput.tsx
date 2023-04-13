@@ -43,7 +43,7 @@ export const FieldInput: Component<{ field: Field }> = ({ field }) => {
                   type={type}
                   name={field.name}
                   value={String(field.value ?? '')}
-                  onKeyUp={(e) => {
+                  onInput={(e) => {
                     field.value = e.currentTarget.value;
                   }}
                 />
