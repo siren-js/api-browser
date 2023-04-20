@@ -1,7 +1,7 @@
 lockfileVersion: 5.4
 
 specifiers:
-  '@siren-js/client': ^0.6.2
+  '@siren-js/client': ^0.7.0
   bulma: ^0.9.4
   highlight.js: ^11.7.0
   normalize.css: ^8.0.1
@@ -12,7 +12,7 @@ specifiers:
   vite-plugin-solid: ^2.5.0
 
 dependencies:
-  '@siren-js/client': 0.6.2
+  '@siren-js/client': 0.7.0
   bulma: 0.9.4
   highlight.js: 11.7.0
   normalize.css: 8.0.1
@@ -577,8 +577,8 @@ packages:
       '@jridgewell/sourcemap-codec': 1.4.14
     dev: true
 
-  /@siren-js/client/0.6.2:
-    resolution: {integrity: sha512-SLVhcQpCydlMDjjVGEsxumSfiTlEFSQn8Fwm4YA59ccYX5G/V1RxQ5XavPFyuc8N4nSN6WlFtd/1ib1ojOMivw==}
+  /@siren-js/client/0.7.0:
+    resolution: {integrity: sha512-cnR97XJtFUCfhS0oZ0NbxpmLZuglN/kS5Ls4Gu3Ba2Z+62v8RG0z8ajCvUPt7x7Dx743FVp5bgULt6ktSJtwgQ==}
     dependencies:
       class-transformer: 0.5.1
       class-transformer-validator: 0.9.1_p4ywi7fdcrugq6nsanv77hac4q
@@ -590,8 +590,8 @@ packages:
       - encoding
     dev: false
 
-  /@types/validator/13.7.13:
-    resolution: {integrity: sha512-EMfHccxNKXaSxTK6DN0En9WsXa7uR4w3LQtx31f6Z2JjG5hJQeVX5zUYMZoatjZgnoQmRcT94WnNWwi0BzQW6Q==}
+  /@types/validator/13.7.15:
+    resolution: {integrity: sha512-yeinDVQunb03AEP8luErFcyf/7Lf7AzKCD0NXfgVoGCCQDNpZET8Jgq74oBgqKld3hafLbfzt/3inUdQvaFeXQ==}
     dev: false
 
   /ansi-styles/3.2.1:
@@ -702,8 +702,8 @@ packages:
   /class-validator/0.14.0:
     resolution: {integrity: sha512-ct3ltplN8I9fOwUd8GrP8UQixwff129BkEtuWDKL5W45cQuLd19xqmTLu5ge78YDm/fdje6FMt0hGOhl0lii3A==}
     dependencies:
-      '@types/validator': 13.7.13
-      libphonenumber-js: 1.10.21
+      '@types/validator': 13.7.15
+      libphonenumber-js: 1.10.28
       validator: 13.9.0
     dev: false
 
@@ -904,8 +904,8 @@ packages:
     hasBin: true
     dev: true
 
-  /libphonenumber-js/1.10.21:
-    resolution: {integrity: sha512-/udZhx49av2r2gZR/+xXSrwcR8smX/sDNrVpOFrvW+CA26TfYTVZfwb3MIDvmwAYMLs7pXuJjZX0VxxGpqPhsA==}
+  /libphonenumber-js/1.10.28:
+    resolution: {integrity: sha512-1eAgjLrZA0+2Wgw4hs+4Q/kEBycxQo8ZLYnmOvZ3AlM8ImAVAJgDPlZtISLEzD1vunc2q8s2Pn7XwB7I8U3Kzw==}
     dev: false
 
   /lru-cache/5.1.1:
