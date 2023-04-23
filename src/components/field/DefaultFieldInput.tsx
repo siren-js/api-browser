@@ -5,18 +5,18 @@ import { Field } from '@siren-js/client';
 import { fieldLabel } from '../../utils';
 
 const typeToIcon = new Map([
+  ['date', 'calendar-day'],
+  ['datetime-local', 'calendar-alt'],
+  ['email', 'envelope'],
+  ['month', 'calendar'],
+  ['number', 'hashtag'],
+  ['password', 'lock'],
   ['search', 'search'],
   ['tel', 'phone'],
-  ['url', 'link'],
-  ['email', 'envelope'],
-  ['password', 'lock'],
-  ['date', 'calendar-day'],
-  ['month', 'calendar'],
-  ['week', 'calendar-week'],
-  ['time', 'clock'],
-  ['datetime-local', 'calendar-alt'],
   ['text', 'comment-alt'],
-  ['number', 'hashtag'],
+  ['time', 'clock'],
+  ['url', 'link'],
+  ['week', 'calendar-week'],
 ]);
 
 const normalizeType = (field: Field) => {
