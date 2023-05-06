@@ -1,5 +1,5 @@
 .code-block {
   border-radius: 0.3rem;
-  padding: 0;
+  padding: 0 !important;
   white-space: pre-wrap;
 }

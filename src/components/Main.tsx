@@ -1,6 +1,6 @@
 import { Component, createSignal, Match, Show, Switch } from 'solid-js';
 
-import { useBrowserContext } from '../browser';
+import { useBrowserContext } from '../stores/browser';
 import { CodeBlock } from './CodeBlock';
 import { EntityDisplay } from './EntityDisplay';
 import { Message, MessageType } from './Message';
@@ -58,7 +58,7 @@ export const Main: Component = () => {
               </Message>
             </Match>
             <Match when={entity()} keyed>
-              {(entity) => <CodeBlock>{JSON.stringify(entity, null, 2)}</CodeBlock>}
+              {(entity) => <CodeBlock value={entity} />}
             </Match>
           </Switch>
         </Match>

@@ -2,7 +2,7 @@ import { Component } from 'solid-js';
 
 import { EmbeddedLink, Link } from '@siren-js/client';
 
-import { useBrowserContext } from '../browser';
+import { useBrowserContext } from '../stores/browser';
 
 function areEqualUrls(href1: string, href2: string): boolean {
   // wrap in URL to account for trailing slashes

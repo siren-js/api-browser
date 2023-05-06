@@ -1,6 +1,6 @@
 import { Component } from 'solid-js';
 
-import { useBrowserContext } from '../browser';
+import { useBrowserContext } from '../stores/browser';
 
 export const Navigator: Component = () => {
   const {

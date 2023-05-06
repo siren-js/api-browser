@@ -18,7 +18,7 @@ export const RadioFieldInput: Component<{ field: Field }> = ({ field }) => {
   if (field.default == null) field.default = field.value;
 
   const options = getValidOptions(field);
-  const defaultNotInList = options.find((option) => option.value === field.default) == null;
+  const defaultNotInList = !options.some((option) => option.value === field.default);
   if (defaultNotInList) {
     options.unshift({ value: field.default, title: 'Select one...' });
   }
