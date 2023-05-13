@@ -11,7 +11,7 @@ export const EntityDisplay: Component<{ entity: Accessor<Entity | EmbeddedEntity
   return (
     <>
       <Show when={entity().title}>
-        <h1 class="title">{entity().title}</h1>
+        <h2 class="title">{entity().title}</h2>
       </Show>
       <PropertiesPanel properties={() => entity().properties} />
       <LinksPanel links={() => entity().links} />
