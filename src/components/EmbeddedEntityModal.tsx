@@ -16,7 +16,6 @@ export const EmbeddedEntityModal: Component<EmbeddedEntityModalProps> = ({ activ
       <div class="modal-background" onClick={onClose}></div>
       <div class="modal-content">
         <div class="box">
-          <h3 class="title">{embeddedEntity.title ?? embeddedEntity.rel.join(', ')}</h3>
           <EntityDisplay entity={() => embeddedEntity} />
         </div>
       </div>
