@@ -30,6 +30,11 @@ function inputTypeAndIcon(field: Field): [string, string] {
   return icon ? [type, icon] : ['text', 'question'];
 }
 
+const typeToAutocomplete = new Map([
+  ['password', 'new-password'],
+  ['email', 'username'],
+]);
+
 export const DefaultFieldInput: Component<{ field: Field }> = ({ field }) => {
   const [type, icon] = inputTypeAndIcon(field);
   return (
@@ -44,6 +49,7 @@ export const DefaultFieldInput: Component<{ field: Field }> = ({ field }) => {
           onInput={(e) => {
             field.value = e.currentTarget.value;
           }}
+          autocomplete={typeToAutocomplete.get(type)}
         />
         <span class="icon is-small is-left">
           <i class={`fas fa-${icon}`}></i>
