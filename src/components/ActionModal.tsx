@@ -2,7 +2,7 @@ import { Accessor, Component, For } from 'solid-js';
 
 import { Action } from '@siren-js/client';
 
-import { useBrowserContext } from '../stores/browser';
+import { submit } from '../stores/browser';
 import { FieldInput } from './field/FieldInput';
 
 interface ActionModalProps {
@@ -12,7 +12,6 @@ interface ActionModalProps {
 }
 
 export const ActionModal: Component<ActionModalProps> = ({ action, active, onClose }) => {
-  const { submit } = useBrowserContext();
   return (
     <div class="modal" classList={{ 'is-active': active() }}>
       <div class="modal-background" onClick={onClose}></div>

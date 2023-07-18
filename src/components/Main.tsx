@@ -1,24 +1,31 @@
-import { Component, createSignal, Match, Show, Switch } from 'solid-js';
+import { Component, createSignal, For, Match, Show, Switch } from 'solid-js';
 
-import { useBrowserContext } from '../stores/browser';
-import { CodeBlock } from './CodeBlock';
-import { EntityDisplay } from './EntityDisplay';
+import { appState } from '../stores/browser';
+import { ErrorState, isNormal, NormalState } from '../types/AppState';
 import { Message, MessageType } from './Message';
+import { ParsedContent } from './ParsedContent';
+import { PrettyContent } from './PrettyContent';
+import { RawContent } from './RawContent';
 
 enum Tab {
-  Pretty,
-  Parsed,
-  Raw,
+  Pretty = 'Pretty',
+  Parsed = 'Parsed',
+  Raw = 'Raw',
 }
 
 export const Main: Component = () => {
-  const { entity, error, rawContent } = useBrowserContext();
   const [tab, setTab] = createSignal(Tab.Pretty);
 
   const gettingStartedMessage = (
     <Message title="Getting Started">
-      Enter a Siren API URL above to get started. Requests are made directly from your browser, meaning you can even hit
-      localhost.
+      Enter a Siren API URL above to get started. Requests are made directly from your browser, meaning you can even
+      ping &nbsp;<code>localhost</code>.
+    </Message>
+  );
+
+  const ErrorMessage = (state: ErrorState) => (
+    <Message title="Error" type={MessageType.Danger}>
+      {(state as ErrorState).error.message}
     </Message>
   );
 
@@ -26,48 +33,32 @@ export const Main: Component = () => {
     <>
       <div class="tabs">
         <ul>
-          <li classList={{ 'is-active': tab() === Tab.Pretty }} onClick={() => setTab(Tab.Pretty)}>
-            <a>Pretty</a>
-          </li>
-          <li classList={{ 'is-active': tab() === Tab.Parsed }} onClick={() => setTab(Tab.Parsed)}>
-            <a>Parsed</a>
-          </li>
-          <li classList={{ 'is-active': tab() === Tab.Raw }} onClick={() => setTab(Tab.Raw)}>
-            <a>Raw</a>
-          </li>
+          <For each={Object.values(Tab)}>
+            {(t) => (
+              <li classList={{ 'is-active': t === tab() }} onClick={() => setTab(t)}>
+                <a>{t}</a>
+              </li>
+            )}
+          </For>
         </ul>
       </div>
-      <Switch>
-        <Match when={tab() === Tab.Pretty}>
-          <Switch fallback={gettingStartedMessage}>
-            <Match when={error()}>
-              <Message type={MessageType.Danger} title="Error">
-                {error()!.message}
-              </Message>
-            </Match>
-            <Match when={entity()}>
-              <EntityDisplay entity={() => entity()!} />
-            </Match>
-          </Switch>
-        </Match>
-        <Match when={tab() === Tab.Parsed}>
-          <Switch fallback={gettingStartedMessage}>
-            <Match when={error()}>
-              <Message type={MessageType.Danger} title="Error">
-                {error()!.message}
-              </Message>
-            </Match>
-            <Match when={entity()} keyed>
-              {(entity) => <CodeBlock value={entity} />}
-            </Match>
-          </Switch>
-        </Match>
-        <Match when={tab() === Tab.Raw}>
-          <Show when={rawContent()} fallback={gettingStartedMessage} keyed>
-            {(content) => <CodeBlock>{content}</CodeBlock>}
+      <Show when={appState()} fallback={gettingStartedMessage} keyed>
+        {(state) => (
+          <Show when={isNormal(state)} fallback={ErrorMessage(state as ErrorState)} keyed>
+            <Switch>
+              <Match when={tab() === Tab.Pretty}>
+                <PrettyContent state={state as NormalState} />
+              </Match>
+              <Match when={tab() === Tab.Parsed}>
+                <ParsedContent state={state as NormalState} />
+              </Match>
+              <Match when={tab() === Tab.Raw}>
+                <RawContent state={state as NormalState} />
+              </Match>
+            </Switch>
           </Show>
-        </Match>
-      </Switch>
+        )}
+      </Show>
     </>
   );
 };

@@ -2,7 +2,8 @@ import { Component } from 'solid-js';
 
 import { EmbeddedLink, Link } from '@siren-js/client';
 
-import { useBrowserContext } from '../stores/browser';
+import { follow } from '../stores/browser';
+import { location } from '../stores/location';
 
 function areEqualUrls(href1: string, href2: string): boolean {
   // wrap in URL to account for trailing slashes
@@ -12,7 +13,6 @@ function areEqualUrls(href1: string, href2: string): boolean {
 }
 
 export const LinkPanelBlock: Component<{ link: Link | EmbeddedLink }> = ({ link }) => {
-  const { follow, location } = useBrowserContext();
   return (
     <a
       class="panel-block"

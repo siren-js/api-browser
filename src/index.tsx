@@ -4,7 +4,6 @@ import './index.scss';
 import { render } from 'solid-js/web';
 
 import App from './components/App';
-import { BrowserProvider } from './stores/browser';
 
 const root = document.getElementById('root');
 
@@ -14,11 +13,4 @@ if (import.meta.env.DEV && !(root instanceof HTMLElement)) {
   );
 }
 
-render(
-  () => (
-    <BrowserProvider>
-      <App />
-    </BrowserProvider>
-  ),
-  root!,
-);
+render(() => <App />, root!);
