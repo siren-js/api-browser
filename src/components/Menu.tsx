@@ -20,7 +20,12 @@ export const Menu: Component = () => {
       </div>
       <div class="dropdown-menu" id="dropdown-menu" role="menu">
         <div class="dropdown-content">
-          <a class="dropdown-item">Settings (Coming Soon!)</a>
+          <a class="dropdown-item">
+            <span class="icon is-small mr-2">
+              <i class="fas fa-cog" aria-hidden="true"></i>
+            </span>
+            Settings (Coming Soon)
+          </a>
           <hr class="dropdown-divider" />
           <a
             class="dropdown-item"
@@ -30,6 +35,9 @@ export const Menu: Component = () => {
               activateAboutModal();
             }}
           >
+            <span class="icon is-small mr-2">
+              <i class="fas fa-info-circle" aria-hidden="true"></i>
+            </span>
             About
           </a>
         </div>
