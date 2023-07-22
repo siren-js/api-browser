@@ -3,14 +3,17 @@ lockfileVersion: 5.4
 specifiers:
   '@siren-js/client': ^0.7.0
   '@types/mime': ^3.0.1
+  '@types/prismjs': ^1.26.0
   bulma: ^0.9.4
   highlight.js: ^11.7.0
   mime: ^3.0.0
   normalize.css: ^8.0.1
+  prismjs: ^1.29.0
   sass: ^1.58.3
   solid-js: ^1.6.10
   typescript: ^4.9.5
   vite: ^4.1.1
+  vite-plugin-prismjs: ^0.0.8
   vite-plugin-solid: ^2.5.0
 
 dependencies:
@@ -19,13 +22,16 @@ dependencies:
   highlight.js: 11.7.0
   mime: 3.0.0
   normalize.css: 8.0.1
+  prismjs: 1.29.0
   solid-js: 1.6.10
 
 devDependencies:
   '@types/mime': 3.0.1
+  '@types/prismjs': 1.26.0
   sass: 1.58.3
   typescript: 4.9.5
   vite: 4.1.1_sass@1.58.3
+  vite-plugin-prismjs: 0.0.8_prismjs@1.29.0
   vite-plugin-solid: 2.5.0_solid-js@1.6.10+vite@4.1.1
 
 packages:
@@ -598,6 +604,10 @@ packages:
     resolution: {integrity: sha512-Y4XFY5VJAuw0FgAqPNd6NNoV44jbq9Bz2L7Rh/J6jLTiHBSBJa9fxqQIvkIld4GsoDOcCbvzOUAbLPsSKKg+uA==}
     dev: true
 
+  /@types/prismjs/1.26.0:
+    resolution: {integrity: sha512-ZTaqn/qSqUuAq1YwvOFQfVW1AR/oQJlLSZVustdjwI+GZ8kr0MSHBj0tsXPW1EqHubx50gtBEjbPGsdZwQwCjQ==}
+    dev: true
+
   /@types/validator/13.7.15:
     resolution: {integrity: sha512-yeinDVQunb03AEP8luErFcyf/7Lf7AzKCD0NXfgVoGCCQDNpZET8Jgq74oBgqKld3hafLbfzt/3inUdQvaFeXQ==}
     dev: false
@@ -627,6 +637,14 @@ packages:
       '@babel/plugin-syntax-jsx': 7.18.6_@babel+core@7.20.7
       '@babel/types': 7.20.7
       html-entities: 2.3.2
+    dev: true
+
+  /babel-plugin-prismjs/2.1.0_prismjs@1.29.0:
+    resolution: {integrity: sha512-ehzSKYfeAz4U78zi/sfwsjDPlq0LvDKxNefcZTJ/iKBu+plsHsLqZhUeGf1+82LAcA35UZGbU6ksEx2Utphc/g==}
+    peerDependencies:
+      prismjs: ^1.18.0
+    dependencies:
+      prismjs: 1.29.0
     dev: true
 
   /babel-preset-solid/1.6.6_@babel+core@7.20.7:
@@ -992,6 +1010,10 @@ packages:
       source-map-js: 1.0.2
     dev: true
 
+  /prismjs/1.29.0:
+    resolution: {integrity: sha512-Kx/1w86q/epKcmte75LNrEoT+lX8pBpavuAbvJWRXar7Hz8jrtF+e3vY751p0R8H9HdArwaCTNDDzHg/ScJK1Q==}
+    engines: {node: '>=6'}
+
   /readdirp/3.6.0:
     resolution: {integrity: sha512-hOS089on8RduqdbhvQ5Z37A0ESjsqz6qnRcffsMU3495FuTdqSm+7bhJ29JvIOsBDEEnan5DPu9t3To9VRlMzA==}
     engines: {node: '>=8.10.0'}
@@ -1105,6 +1127,17 @@ packages:
     resolution: {integrity: sha512-B+dGG8U3fdtM0/aNK4/X8CXq/EcxU2WPrPEkJGslb47qyHsxmbggTWK0yEA4qnYVNF+nxNlN88o14hIcPmSIEA==}
     engines: {node: '>= 0.10'}
     dev: false
+
+  /vite-plugin-prismjs/0.0.8_prismjs@1.29.0:
+    resolution: {integrity: sha512-mBPPMS/hwVUArdqCtp/oajZT7iq1qwJDDCciNZ3R5+Q5tQUuUHXtDKuZHYnklPLElNbENf2FyuOtC4FrgxQRAA==}
+    engines: {node: '>=12.0.0'}
+    dependencies:
+      '@babel/core': 7.20.7
+      babel-plugin-prismjs: 2.1.0_prismjs@1.29.0
+    transitivePeerDependencies:
+      - prismjs
+      - supports-color
+    dev: true
 
   /vite-plugin-solid/2.5.0_solid-js@1.6.10+vite@4.1.1:
     resolution: {integrity: sha512-VneGd3RyFJvwaiffsqgymeMaofn0IzQLPwDzafTV2f1agoWeeJlk5VrI5WqT9BTtLe69vNNbCJWqLhHr9fOdDw==}

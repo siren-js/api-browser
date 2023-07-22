@@ -1,5 +1,7 @@
 .code-block {
-  border-radius: 0.3rem;
-  padding: 0 !important;
-  white-space: pre-wrap;
+  border-radius: 0.375rem;
+}
+
+.code-block > code {
+  white-space: pre-wrap !important;
 }

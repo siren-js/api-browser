@@ -1,11 +1,11 @@
 import './CodeBlock.css';
 
-import hljs from 'highlight.js';
 import { createEffect, ParentComponent } from 'solid-js';
+import Prism from 'prismjs';
 
 export const CodeBlock: ParentComponent<{ value?: unknown }> = ({ children, value }) => {
   createEffect(() => {
-    hljs.highlightAll();
+    Prism.highlightAll();
   });
 
   const code = children ?? JSON.stringify(value, null, 2);
