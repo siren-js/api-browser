@@ -1,11 +1,11 @@
-import mime from 'mime-types';
+import mime from 'mime';
 
 const fileExtension = (content: Blob) =>
-  content.type === 'application/vnd.siren+json' ? 'json' : mime.extension(content.type);
+  content.type === 'application/vnd.siren+json' ? 'json' : mime.getExtension(content.type) ?? '';
 
 function makeFile(name: string, content: Blob) {
   const ext = fileExtension(content);
-  const fileName = ext === false ? name : `${name}.${ext}`;
+  const fileName = `${name}.${ext}`;
   return new File([content], fileName, {
     type: content.type,
   });
