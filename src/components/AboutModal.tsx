@@ -87,18 +87,22 @@ export const AboutModal: Component = () => {
               <code>radio</code> fields must include an <code>options</code> property with an array of one or more
               option objects. Here's an example:
             </p>
-            <CodeBlock
-              value={{
-                name: 'hogwartsHouse',
-                type: 'radio',
-                options: [
-                  { title: 'Gryffindor', value: 'g' },
-                  { title: 'Hufflepuff', value: 'h' },
-                  { title: 'Ravenclaw', value: 'r' },
-                  { title: 'Slytherin', value: 's' },
-                ],
-              }}
-            />
+            <CodeBlock language="json">
+              {JSON.stringify(
+                {
+                  name: 'hogwartsHouse',
+                  type: 'radio',
+                  options: [
+                    { title: 'Gryffindor', value: 'g' },
+                    { title: 'Hufflepuff', value: 'h' },
+                    { title: 'Ravenclaw', value: 'r' },
+                    { title: 'Slytherin', value: 's' },
+                  ],
+                },
+                null,
+                2,
+              )}
+            </CodeBlock>
             <p>
               Each option object must include a <code>value</code> property used to set the field's <code>value</code>{' '}
               when that option is selected. There is also an optional <code>title</code> property, which can be used to

@@ -1,18 +1,16 @@
 import './CodeBlock.css';
 
-import { createEffect, ParentComponent } from 'solid-js';
 import Prism from 'prismjs';
+import { Component, createEffect } from 'solid-js';
 
-export const CodeBlock: ParentComponent<{ value?: unknown }> = ({ children, value }) => {
+export const CodeBlock: Component<{ language: string; children: string }> = ({ language, children }) => {
   createEffect(() => {
     Prism.highlightAll();
   });
 
-  const code = children ?? JSON.stringify(value, null, 2);
-
   return (
     <pre class="code-block">
-      <code class="language-json">{code}</code>
+      <code class={`language-${language}`}>{children}</code>
     </pre>
   );
 };
