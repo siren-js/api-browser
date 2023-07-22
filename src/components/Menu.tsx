@@ -1,6 +1,9 @@
-import { Component, createSignal } from 'solid-js';
+import { Component, createSignal, Show } from 'solid-js';
 
+import { createDownload } from '../download';
 import { activateAboutModal } from '../stores/about';
+import { appState } from '../stores/browser';
+import { isNormal, NormalState } from '../types/AppState';
 
 export const Menu: Component = () => {
   const [isActive, setIsActive] = createSignal(false);
@@ -26,6 +29,21 @@ export const Menu: Component = () => {
             </span>
             Settings (Coming Soon)
           </a>
+          <Show when={appState()} keyed>
+            {(state) => (
+              <Show when={isNormal(state)}>
+                <a
+                  class="dropdown-item"
+                  onClick={() => createDownload('response', (state as NormalState).responseBody)}
+                >
+                  <span class="icon is-small mr-2">
+                    <i class="fas fa-download" aria-hidden="true"></i>
+                  </span>
+                  Download Content
+                </a>
+              </Show>
+            )}
+          </Show>
           <hr class="dropdown-divider" />
           <a
             class="dropdown-item"
