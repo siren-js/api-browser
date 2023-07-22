@@ -2,8 +2,8 @@ import { createResource, JSX, Match, Switch } from 'solid-js';
 
 import { Entity, parse } from '@siren-js/client';
 
-import { ContentComponent } from '../../types/ContentComponent';
-import { Message, MessageType } from '../Message';
+import { Message, MessageType } from '../components/Message';
+import { ContentComponent } from '../types/ContentComponent';
 
 const sirenMediaTypeRegExp = /^application\/vnd\.siren\+json(;|$)/i;
 

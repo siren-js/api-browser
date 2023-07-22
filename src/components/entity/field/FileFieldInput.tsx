@@ -2,7 +2,7 @@ import { Component, createSignal } from 'solid-js';
 
 import { Field } from '@siren-js/client';
 
-import { fieldLabel } from '../../utils';
+import { fieldLabel } from '../../../utils/field';
 
 function defaultFilename(field: Field): string {
   const { value } = field;

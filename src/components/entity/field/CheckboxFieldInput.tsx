@@ -2,7 +2,7 @@ import { Component } from 'solid-js';
 
 import { Field } from '@siren-js/client';
 
-import { fieldLabel } from '../../utils';
+import { fieldLabel } from '../../../utils/field';
 
 export const CheckboxFieldInput: Component<{ field: Field }> = ({ field }) => {
   // ensure checkbox's value is boolean

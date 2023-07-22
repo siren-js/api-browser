@@ -2,7 +2,7 @@ import { Component } from 'solid-js';
 
 import { Field } from '@siren-js/client';
 
-import { fieldLabel } from '../../utils';
+import { fieldLabel } from '../../../utils/field';
 
 const typeToIcon = new Map([
   ['date', 'calendar-day'],

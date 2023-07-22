@@ -1,4 +1,4 @@
-import { isRecord, isString } from '../utils';
+import { isRecord, isString } from '../utils/types';
 
 export interface Option<T = unknown> {
   value: T;

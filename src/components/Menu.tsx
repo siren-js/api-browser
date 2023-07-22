@@ -1,9 +1,9 @@
 import { Component, createSignal, Show } from 'solid-js';
 
-import { createDownload } from '../download';
 import { activateAboutModal } from '../stores/about';
 import { appState } from '../stores/browser';
 import { isNormal, NormalState } from '../types/AppState';
+import { createDownload } from '../utils/download';
 
 export const Menu: Component = () => {
   const [isActive, setIsActive] = createSignal(false);

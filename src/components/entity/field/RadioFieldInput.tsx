@@ -2,8 +2,8 @@ import { Component, createSignal, For } from 'solid-js';
 
 import { Field } from '@siren-js/client';
 
-import { isOption, Option } from '../../types/Option';
-import { fieldLabel } from '../../utils';
+import { isOption, Option } from '../../../types/Option';
+import { fieldLabel } from '../../../utils/field';
 
 const getValidOptions = (field: Field): Option[] =>
   !Array.isArray(field.options) ? [] : field.options.filter((option) => isOption(option));

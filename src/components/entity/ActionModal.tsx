@@ -2,7 +2,7 @@ import { Accessor, Component, For } from 'solid-js';
 
 import { Action } from '@siren-js/client';
 
-import { submit } from '../stores/browser';
+import { submit } from '../../stores/browser';
 import { FieldInput } from './field/FieldInput';
 
 interface ActionModalProps {
