@@ -3,6 +3,7 @@ import { ParentComponent } from 'solid-js';
 export enum MessageType {
   Primary = 'is-primary',
   Danger = 'is-danger',
+  Warning = 'is-warning',
 }
 
 export const Message: ParentComponent<{ type?: MessageType; title: string }> = ({

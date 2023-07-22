@@ -6,8 +6,6 @@ import * as Siren from '@siren-js/client';
 import { AppState, ErrorState, NormalState } from '../types/AppState';
 import { setLocation } from './location';
 
-const sirenMediaTypeRegExp = /^application\/vnd\.siren\+json(;|$)/i;
-
 export const [loading, setLoading] = createSignal(false);
 
 const [history, setHistory] = createStore<AppState[]>([]);
@@ -27,16 +25,9 @@ function updateFrom(state: AppState) {
 
 async function handleResponse(response: Response): Promise<void> {
   const body = await response.blob();
-  const rawContent = await body.text();
-  const contentType = response.headers.get('Content-Type') ?? '';
-  const parseResult = sirenMediaTypeRegExp.test(contentType)
-    ? await Siren.parse(rawContent)
-    : new Error(`Unable to parse unrecognized Content-Type: ${contentType}`);
   const state: NormalState = {
     url: response.url,
-    response,
-    rawContent,
-    parseResult,
+    responseBody: body,
   };
   updateFrom(state);
 }
