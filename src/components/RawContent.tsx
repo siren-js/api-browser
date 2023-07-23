@@ -1,19 +1,32 @@
-import { createResource, Show } from 'solid-js';
+import { createResource, Match, Switch } from 'solid-js';
 
 import { ContentComponent } from '../types/ContentComponent';
 import { fileExtension } from '../utils/mime';
 import { CodeBlock } from './CodeBlock';
+import { Message, MessageType } from './Message';
+
+const textualTypes = [/^text\//, /^application\/(.*\+)?(html|json|xml)/];
+
+const isTextual = (type: string) => textualTypes.some((regex) => regex.test(type));
 
 export const RawContent: ContentComponent = ({ state }) => {
   const { responseBody } = state;
-  const [rawContent] = createResource(() => responseBody.text());
-  const language = fileExtension(responseBody.type);
+  const { type } = responseBody;
+  const language = fileExtension(type);
+  const [rawContent] = createResource(async () => {
+    if (isTextual(type)) return responseBody.text();
+    else throw new Error(`Unable to display "${type}"`);
+  });
   return (
-    <Show when={rawContent()} fallback={<>Parsing...</>} keyed>
-      {(content) => (
-        //  TODO only show text-based content
-        <CodeBlock language={language}>{content}</CodeBlock>
-      )}
-    </Show>
+    <Switch>
+      <Match when={rawContent.error}>
+        <Message type={MessageType.Warning} title="Cannot Display Content">
+          {rawContent.error.message}
+        </Message>
+      </Match>
+      <Match when={rawContent()} keyed>
+        {(content) => <CodeBlock language={language}>{content}</CodeBlock>}
+      </Match>
+    </Switch>
   );
 };
