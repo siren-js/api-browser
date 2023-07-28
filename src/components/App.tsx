@@ -1,9 +1,9 @@
 import './App.css';
 
-import { AboutModal } from './AboutModal';
 import { Footer } from './Footer';
 import { Main } from './Main';
-import { Menu } from './Menu';
+import { AboutModal } from './menu/AboutModal';
+import { Menu } from './menu/Menu';
 import { Navigator } from './Navigator';
 
 import type { Component } from 'solid-js';

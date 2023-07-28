@@ -2,9 +2,9 @@ import './AboutModal.css';
 
 import { Component, For } from 'solid-js';
 
-import { deactivateAboutModal, isAboutModalActive } from '../stores/about';
-import { CodeBlock } from './CodeBlock';
-import { ExternalLink } from './ExternalLink';
+import { hideAboutModal, isAboutModalActive } from '../../stores/about';
+import { CodeBlock } from '../CodeBlock';
+import { ExternalLink } from '../ExternalLink';
 
 const supportedFieldTypes = [
   'checkbox',
@@ -26,10 +26,9 @@ const supportedFieldTypes = [
 ];
 
 export const AboutModal: Component = () => {
-  const onClose = () => deactivateAboutModal();
   return (
     <div class="modal" classList={{ 'is-active': isAboutModalActive() }}>
-      <div class="modal-background" onClick={onClose}></div>
+      <div class="modal-background" onClick={hideAboutModal}></div>
       <div class="modal-content">
         <div class="box">
           <div class="content">
@@ -126,7 +125,7 @@ export const AboutModal: Component = () => {
           </div>
         </div>
       </div>
-      <button class="modal-close is-large" aria-label="close" onClick={onClose}></button>
+      <button class="modal-close is-large" aria-label="close" onClick={hideAboutModal}></button>
     </div>
   );
 };
