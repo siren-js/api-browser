@@ -5,6 +5,7 @@ import * as Siren from '@siren-js/client';
 
 import { AppState, ErrorState, NormalState } from '../types/AppState';
 import { setLocation } from './location';
+import { settings } from './settings';
 
 export const [loading, setLoading] = createSignal(false);
 
@@ -45,8 +46,23 @@ const navigate = (sendRequest: () => Promise<Response>) => {
     .finally(() => setLoading(false));
 };
 
-export const follow = (target: Siren.Target) => navigate(() => Siren.follow(target));
-export const submit = (action: Siren.Action) => navigate(() => Siren.submit(action));
+const requestInit = (): RequestInit => ({
+  headers: settings.headers,
+});
+
+export const follow = (target: Siren.Target) =>
+  navigate(() =>
+    Siren.follow(target, {
+      requestInit: requestInit(),
+    }),
+  );
+
+export const submit = (action: Siren.Action) =>
+  navigate(() =>
+    Siren.submit(action, {
+      requestInit: requestInit(),
+    }),
+  );
 
 const go = (indexFn: (currentIndex: number) => number) => {
   setHistoryIndex((currentIndex) => {

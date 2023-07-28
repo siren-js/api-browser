@@ -4,6 +4,7 @@ import { Footer } from './Footer';
 import { Main } from './Main';
 import { AboutModal } from './menu/AboutModal';
 import { Menu } from './menu/Menu';
+import { SettingsModal } from './menu/SettingsModal';
 import { Navigator } from './Navigator';
 
 import type { Component } from 'solid-js';
@@ -19,6 +20,7 @@ const App: Component = () => {
             </div>
             <div class="column is-narrow">
               <Menu />
+              <SettingsModal />
               <AboutModal />
             </div>
           </div>
