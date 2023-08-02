@@ -1,7 +1,7 @@
 lockfileVersion: 5.4
 
 specifiers:
-  '@siren-js/client': ^0.7.0
+  '@siren-js/client': ^0.8.2
   '@types/mime': ^3.0.1
   '@types/prismjs': ^1.26.0
   bulma: ^0.9.4
@@ -17,7 +17,7 @@ specifiers:
   vite-plugin-solid: ^2.5.0
 
 dependencies:
-  '@siren-js/client': 0.7.0
+  '@siren-js/client': 0.8.2
   bulma: 0.9.4
   highlight.js: 11.7.0
   mime: 3.0.0
@@ -587,8 +587,8 @@ packages:
       '@jridgewell/sourcemap-codec': 1.4.14
     dev: true
 
-  /@siren-js/client/0.7.0:
-    resolution: {integrity: sha512-cnR97XJtFUCfhS0oZ0NbxpmLZuglN/kS5Ls4Gu3Ba2Z+62v8RG0z8ajCvUPt7x7Dx743FVp5bgULt6ktSJtwgQ==}
+  /@siren-js/client/0.8.2:
+    resolution: {integrity: sha512-+H+rRdqTf49Bitx3CRQq0THNnFiTnZ9I1tetyL+TTDvgdKd64stkZ92pZV+FW+lnxStjbiuo7J4qYGrciDSL2g==}
     dependencies:
       class-transformer: 0.5.1
       class-transformer-validator: 0.9.1_p4ywi7fdcrugq6nsanv77hac4q
