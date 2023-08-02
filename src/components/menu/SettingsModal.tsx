@@ -5,6 +5,7 @@ import {
   hideSettingsModal,
   isSettingsModalActive,
   removeHeader,
+  setRelaxed,
   settings,
   updateHeaderName,
   updateHeaderValue,
@@ -25,6 +26,26 @@ export const SettingsModal: Component = () => {
 const SettingsModalContent: Component = () => (
   <div class="box">
     <h2 class="title is-3">Settings</h2>
+
+    <div class="field">
+      <div class="control">
+        <label class="checkbox">
+          <input
+            class="mr-1"
+            type="checkbox"
+            checked={settings.relaxed}
+            onChange={(e) => {
+              setRelaxed(e.currentTarget.checked);
+            }}
+          />
+          Relaxed Mode
+        </label>
+      </div>
+      <p class="help" style={{ 'padding-left': '1.5em' }}>
+        Attempt to parse any JSON representation as Siren
+      </p>
+    </div>
+
     <h3 class="title is-4">Headers</h3>
     <p class="subtitle is-6 mb-3">HTTP headers sent with each request</p>
     <For each={settings.headers}>

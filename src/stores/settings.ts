@@ -9,10 +9,12 @@ export const hideSettingsModal = () => setIsSettingsModalActive(false);
 
 interface Settings {
   headers: [string, string][];
+  relaxed: boolean;
 }
 
 const [settings, setSettings] = createStore<Settings>({
   headers: [['Accept', 'application/vnd.siren+json,application/json;q=0.9,*/*']],
+  relaxed: false,
 });
 
 export { settings };
@@ -27,3 +29,5 @@ const updateHeader = (index: number, component: 0 | 1, value: string) =>
 export const updateHeaderName = (index: number, name: string) => updateHeader(index, 0, name);
 
 export const updateHeaderValue = (index: number, value: string) => updateHeader(index, 1, value);
+
+export const setRelaxed = (value: boolean) => setSettings('relaxed', value);

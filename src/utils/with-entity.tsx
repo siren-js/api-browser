@@ -3,13 +3,20 @@ import { createResource, JSX, Match, Switch } from 'solid-js';
 import { Entity, parse } from '@siren-js/client';
 
 import { Message, MessageType } from '../components/Message';
+import { settings } from '../stores/settings';
 import { ContentComponent } from '../types/ContentComponent';
 
+const jsonMediaTypeRegExp = /^application\/(.*\+)?json(;|$)/i;
 const sirenMediaTypeRegExp = /^application\/vnd\.siren\+json(;|$)/i;
+
+function isParsable(contentType: string) {
+  const regex = settings.relaxed ? jsonMediaTypeRegExp : sirenMediaTypeRegExp;
+  return regex.test(contentType);
+}
 
 export const createSirenResource = (content: Blob) =>
   createResource(async () => {
-    if (!sirenMediaTypeRegExp.test(content.type)) {
+    if (!isParsable(content.type)) {
       throw new Error(`Unable to parse "${content.type}" as Siren`);
     }
     const text = await content.text();
