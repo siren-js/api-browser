@@ -41,7 +41,7 @@ export const Navigator: Component = () => (
         <input
           class="input"
           name="location"
-          placeholder="URL of a Siren API"
+          placeholder="Request URL"
           required
           type="url"
           value={location()}

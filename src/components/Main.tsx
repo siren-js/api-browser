@@ -13,8 +13,8 @@ import { Tab } from './Tab';
 export const Main: Component = () => {
   const gettingStartedMessage = (
     <Message title="Getting Started">
-      Enter a Siren API URL above to get started. Requests are made directly from your browser, meaning you can even
-      ping &nbsp;<code>localhost</code>.
+      Enter your Siren API's entry point URL above to get started. Requests are made directly from your browser, meaning
+      you can ping <code>localhost</code>.
     </Message>
   );
 
