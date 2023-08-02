@@ -1,4 +1,4 @@
-import { Component, createSignal } from 'solid-js';
+import { Component, createSignal, For, Show } from 'solid-js';
 
 import { EmbeddedEntity } from '@siren-js/client';
 
@@ -18,7 +18,13 @@ export const EmbeddedEntityPanelBlock: Component<{ embeddedEntity: EmbeddedEntit
         <span class="panel-icon">
           <i class="fas fa-file-alt" aria-hidden="true"></i>
         </span>
-        {embeddedEntity.title ?? embeddedEntity.rel.join(', ')}
+        <Show when={embeddedEntity.title}>
+          <span class="mr-3">{embeddedEntity.title}</span>
+        </Show>
+        <div class="tags">
+          <For each={embeddedEntity.rel}>{(rel) => <span class="tag">{rel}</span>}</For>
+          <For each={embeddedEntity.class}>{(className) => <span class="tag is-info is-light">{className}</span>}</For>
+        </div>
       </a>
       <EmbeddedEntityModal embeddedEntity={embeddedEntity} active={active} onClose={() => setActive(false)} />
     </>

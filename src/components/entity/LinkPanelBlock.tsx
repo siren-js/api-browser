@@ -1,4 +1,4 @@
-import { Component } from 'solid-js';
+import { Component, For, Show } from 'solid-js';
 
 import { EmbeddedLink, Link } from '@siren-js/client';
 
@@ -25,7 +25,13 @@ export const LinkPanelBlock: Component<{ link: Link | EmbeddedLink }> = ({ link 
       <span class="panel-icon">
         <i class="fas fa-link" aria-hidden="true"></i>
       </span>
-      {link.title ?? link.rel.join(', ')}
+      <Show when={link.title}>
+        <span class="mr-3">{link.title}</span>
+      </Show>
+      <div class="tags">
+        <For each={link.rel}>{(rel) => <span class="tag">{rel}</span>}</For>
+        <For each={link.class}>{(className) => <span class="tag is-info is-light">{className}</span>}</For>
+      </div>
     </a>
   );
 };

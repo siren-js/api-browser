@@ -17,7 +17,13 @@ export const ActionModal: Component<ActionModalProps> = ({ action, active, onClo
       <div class="modal-background" onClick={onClose}></div>
       <div class="modal-content">
         <div class="box">
-          <h3 class="title">{action.title ?? action.name}</h3>
+          <h3 class="title" classList={{ 'is-family-monospace': !action.title }}>
+            {action.title ?? 'Untitled'}
+          </h3>
+          <h4 class="subtitle tags">
+            <span class="tag">{action.name}</span>
+            <For each={action.class}>{(className) => <span class="tag is-info is-light">{className}</span>}</For>
+          </h4>
           <form
             onSubmit={(e) => {
               e.preventDefault();
